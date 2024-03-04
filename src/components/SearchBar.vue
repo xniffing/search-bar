@@ -8,7 +8,6 @@
         multi-calendars
         range
         :enable-time-picker="false"
-        :format="format"
       />
     </div>
     <div class="separator"></div>
@@ -165,11 +164,13 @@ function redirect() {
   const url = `https://bookings.feathershouses.com/en-GB/rentals/?checkinDate=${encodedStartDate}&checkoutDate=${encodedEndDate}&city=${encodedLocalization}&adults=${adults.value}&children=${children.value}`;
   window.location.href = url;
 }
-
-const format = "yyyy/MM/dd - yyyy/MM/dd";
 </script>
 
 <style scoped>
+.date-picker {
+  flex: 1;
+}
+
 .form-search {
   display: flex;
   justify-content: space-between;
@@ -184,17 +185,20 @@ const format = "yyyy/MM/dd - yyyy/MM/dd";
   z-index: 1;
 }
 
-.search-form select {
-  background-color: white;
-  border: none;
-  padding: 0.5em;
-  border-radius: 0.2em;
-  margin: 0;
-  width: 100%;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: inherit;
-  line-height: inherit;
+.search-form {
+  flex: 1;
+  & > select {
+    background-color: white;
+    border: none;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+  }
 }
 
 .adults > div,
@@ -218,6 +222,7 @@ const format = "yyyy/MM/dd - yyyy/MM/dd";
   background: white;
   padding: 0.5rem;
   border-radius: 0.2rem;
+  flex: 0.4;
 }
 
 .wrapper {
@@ -246,6 +251,7 @@ const format = "yyyy/MM/dd - yyyy/MM/dd";
 .guest-menu {
   display: flex;
   gap: 0.5em;
+  white-space: nowrap;
 }
 
 button {

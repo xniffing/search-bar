@@ -232,6 +232,7 @@ const format = "yyyy/MM/dd - yyyy/MM/dd";
   align-content: center;
   justify-content: space-evenly;
   margin-left: calc(50% - 6em);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   z-index: 10;
 
   & > div {
@@ -303,6 +304,10 @@ button {
   padding: calc(0.5em - 1px) 1em;
   text-align: center;
   white-space: nowrap;
+}
+
+.search-button {
+  z-index: 10;
 }
 
 .separator {

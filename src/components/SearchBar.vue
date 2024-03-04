@@ -15,18 +15,23 @@
     <div class="search-form">
       <div class="title">LOCATION</div>
       <select
+        name="city"
         v-model="localization"
         class="form-control select"
         aria-label="City"
         id="localizacao"
       >
         <option value="" selected="">City</option>
-        <option value="lagoa (açores)">Lagoa (Açores)</option>
-        <option value="ponta delgada">Ponta Delgada</option>
-        <option value="povoação">Povoação</option>
-        <option value="praia da vitória">Praia da Vitória</option>
-        <option value="ribeira grande">Ribeira Grande</option>
-        <option value="vila franca do campo">Vila Franca do Campo</option>
+        <option value="alcobaça">Alcobaça</option>
+        <option value="bombarral">Bombarral</option>
+        <option value="caldas da rainha">Caldas da Rainha</option>
+        <option value="lourinhã">Lourinhã</option>
+        <option value="nazaré">Nazaré</option>
+        <option value="peniche">Peniche</option>
+        <option value="porto de mós">Porto de Mós</option>
+        <option value="rio maior">Rio Maior</option>
+        <option value="silves">Silves</option>
+        <option value="óbidos">Óbidos</option>
       </select>
     </div>
     <div class="separator"></div>
@@ -154,7 +159,11 @@ function formatDate(date) {
 }
 
 function redirect() {
-  window.location.href = `https://reservas.homeapart.pt/en-GB/rentals/?checkinDate=${startDate.value}&checkoutDate=${endDate.value}&city=${localization.value}&adults=${adults.value}&children=${children.value}`;
+  const encodedLocalization = encodeURIComponent(localization.value);
+  const encodedStartDate = encodeURIComponent(startDate.value);
+  const encodedEndDate = encodeURIComponent(endDate.value);
+  const url = `https://bookings.feathershouses.com/en-GB/rentals/?checkinDate=${encodedStartDate}&checkoutDate=${encodedEndDate}&city=${encodedLocalization}&adults=${adults.value}&children=${children.value}`;
+  window.location.href = url;
 }
 
 const format = "yyyy/MM/dd - yyyy/MM/dd";
